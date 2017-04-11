@@ -27,4 +27,20 @@ describe('Airport', function() {
     spyOn(airport, "_weatherCheck").and.returnValue(true);
     expect( function(){ airport.land(plane); } ).toThrowError('Cannot land, too stormy');
   });
+
+  it('throw error if taking off when stormy', function() {
+    spyOn(airport, '_weatherCheck').and.returnValue(true);
+    expect(function() { airport.takeOff(plane); } ).toThrowError('Cannot take off, too stormy');
+  });
+
+  it('throws an error if try to land a plane when full', function() {
+    for(var x=0; x<10; x++) {
+      airport.land(plane)
+      // plane = new Plane()
+    }
+    expect( function() { airport.land(plane); } ).toThrowError('Cannot land, airport is full')
+
+
+  });
+
 });
