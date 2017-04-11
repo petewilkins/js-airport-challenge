@@ -1,3 +1,5 @@
+'use strict';
+
 function Airport(capacity=10) {
   this.capacity = capacity;
   this._hangar = [];
